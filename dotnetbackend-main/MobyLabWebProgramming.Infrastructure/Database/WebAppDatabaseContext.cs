@@ -1,5 +1,6 @@
 ﻿using Ardalis.EFCore.Extensions;
 using Microsoft.EntityFrameworkCore;
+using MobyLabWebProgramming.Core.Entities;
 using SmartEnum.EFCore;
 
 namespace MobyLabWebProgramming.Infrastructure.Database;
@@ -29,3 +30,4 @@ public sealed class WebAppDatabaseContext : DbContext
         modelBuilder.ConfigureSmartEnum(); // Add support for smart enums.
     }
 }
+

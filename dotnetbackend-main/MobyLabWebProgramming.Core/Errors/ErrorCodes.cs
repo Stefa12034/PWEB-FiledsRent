@@ -17,5 +17,12 @@ public enum ErrorCodes
     CannotAdd,
     CannotUpdate,
     CannotDelete,
-    MailSendFailed
+    MailSendFailed,
+    SportAlreadyExists,
+    FieldAlreadyExists,
+    FieldAlreadyHasDimensions,
+    FieldAlreadyReserved,
+    OwnReservations,
+    FieldNotFound,
+    FieldDimaensionsNotFound
 }

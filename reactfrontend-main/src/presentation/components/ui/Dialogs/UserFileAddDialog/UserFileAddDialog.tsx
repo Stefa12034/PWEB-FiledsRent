@@ -3,6 +3,9 @@ import { useUserFileAddDialogController } from "./UserFileAddDialog.controller";
 import { useIntl } from "react-intl";
 import { UserFileAddForm } from "@presentation/components/forms/UserFile/UserFileAddForm";
 
+/**
+ * This component wraps the user file add form into a modal dialog.
+ */
 export const UserFileAddDialog = () => {
   const { open, close, isOpen } = useUserFileAddDialogController();
   const { formatMessage } = useIntl();

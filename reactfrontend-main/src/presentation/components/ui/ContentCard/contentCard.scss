@@ -1,5 +1,6 @@
 @use "../../../assets/styles/abstracts" as *;
 .content__card__container {
+    margin-top: 5rem;
     border-radius: $border-radius;
     border: $border;
     background-color: $white;
@@ -14,6 +15,7 @@
 
 @media screen and (min-width: $screensize-sm) {
     .content__card__container {
+        margin-top: 5rem;
         border-radius: $border-radius;
         padding: $whitespace-md;
         width: 100%;

@@ -3,6 +3,9 @@ import { useLanguageState } from "application/context/LanguageContextProvider";
 import { PropsWithChildren } from "react";
 import { IntlProvider } from "react-intl";
 
+/**
+ * This component is used to make the internationalization available to the components it wraps.
+ */
 export const AppIntlProvider = ({ children }: PropsWithChildren) => {
   const { selectedLanguage } = useLanguageState();
 

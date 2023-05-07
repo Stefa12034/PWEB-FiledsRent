@@ -3,6 +3,9 @@ import CloudUploadOutlinedIcon from '@mui/icons-material/CloudUploadOutlined';
 import { useCallback } from "react";
 import { UploadButtonProps } from "./UploadButton.types";
 
+/**
+ * This component is a button to upload a file and call the given callback when it is selected.
+ */
 export const UploadButton = (props: UploadButtonProps) => {
     const onUpload = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
         if (!event.target.files || !event.target.files[0]) {

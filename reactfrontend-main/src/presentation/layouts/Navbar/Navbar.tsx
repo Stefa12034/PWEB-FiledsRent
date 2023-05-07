@@ -16,6 +16,9 @@ import { NavbarLanguageSelector } from '@presentation/components/ui/NavbarLangua
 import { useOwnUserHasRole } from '@infrastructure/hooks/useOwnUser';
 import { UserRoleEnum } from '@infrastructure/apis/client';
 
+/**
+ * This is the navigation menu that will stay at the top of the page.
+ */
 export const Navbar = () => {
   const { formatMessage } = useIntl();
   const { loggedIn } = useAppSelector(x => x.profileReducer);
@@ -42,12 +45,12 @@ export const Navbar = () => {
         >
           <Grid container item direction="column" xs={1}>
             <Link
-              to={AppRoute.Index}>
+              to={AppRoute.Index}> {/* Add a button to redirect to the home page. */}
               <HomeIcon style={{ color: 'white' }} fontSize='large' />
             </Link>
           </Grid>
-          <Grid container item direction="column" xs={10}>
-            {isAdmin && <Grid
+          <Grid container item direction="column" xs={8}>
+            {isAdmin && <Grid // If the user is logged in and it is an admin they can have new menu items shown.
               container
               item
               direction="row"
@@ -75,13 +78,13 @@ export const Navbar = () => {
           <Grid container item direction="column" xs={1}>
             <NavbarLanguageSelector />
           </Grid>
-          <Grid container item direction="column" xs={1}>
-            {!loggedIn && <Button color="inherit">
+          <Grid container item direction="column" xs={2}>
+            {!loggedIn && <Button color="inherit">  {/* If the user is not logged in show a button that redirects to the login page. */}
               <Link style={{ color: 'white' }} to={AppRoute.Login}>
                 {formatMessage({ id: "globals.login" })}
               </Link>
             </Button>}
-            {loggedIn && <Button onClick={logout} color="inherit" >
+            {loggedIn && <Button onClick={logout} color="inherit" > {/* Otherwise show the logout button. */}
               {formatMessage({ id: "globals.logout" })}
             </Button>}
           </Grid>

@@ -3,6 +3,9 @@ import { Container } from "@mui/system";
 import { FC } from "react";
 import './footer.scss';
 
+/**
+ * Here we have a simple footer container that will stay on the bottom of the page.
+ */
 export const Footer: FC<{}> = () => {
   const year = new Date().getFullYear();
 

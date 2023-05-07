@@ -4,6 +4,9 @@ import {
   LanguageState,
 } from "./LanguageContextProvider.types";
 
+/**
+ * THis is the reducer for the language context.
+ */
 export const languageContextReducer = (
   state: LanguageState,
   action: LanguageContextActions

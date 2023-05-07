@@ -7,6 +7,9 @@ import { is } from "@infrastructure/utils/typeUtils";
 import { useTokenHasExpired } from "@infrastructure/hooks/useOwnUser";
 import { ErrorCodes } from "@infrastructure/apis/client";
 
+/**
+ * This function is used to return the proper translation for the error message for the given error code.
+ */
 const getTranslationIdForKey = (code?: ErrorCodes) => {
     switch (code) {
         case ErrorCodes.CannotAdd:
@@ -41,18 +44,21 @@ const getTranslationIdForKey = (code?: ErrorCodes) => {
     }
 };
 
+/**
+ * This component provides the toast notifications and also uses a setups a HTTP request interceptor to notify the user on errors.
+ */
 export const ToastNotifier = () => {
     const { formatMessage } = useIntl();
     const tokenHasExpired = useTokenHasExpired();
 
     useInterceptor({
         async onResponse(response: Response) {
-            if (response.status === 401 && tokenHasExpired.loggedIn && tokenHasExpired.hasExpired) {
+            if (response.status === 401 && tokenHasExpired.loggedIn && tokenHasExpired.hasExpired) { // If the token has expired show the proper notification.
                 toast.error(formatMessage({ id: "notifications.errors.sessionExpired" }));
             } else if (response.status === 500) {
-                toast.error(formatMessage({ id: "notifications.errors.unknownHappened" }));
-            } else if (!response.ok && response.headers.has("content-type") && response.headers.get("content-type")?.includes("application/json")) {
-                const cloned = response.clone();
+                toast.error(formatMessage({ id: "notifications.errors.unknownHappened" })); // If the server encounters an unexpected error show the proper notification.
+            } else if (!response.ok && response.headers.has("content-type") && response.headers.get("content-type")?.includes("application/json")) { // If the server returns an error with a error code show the proper notification with a message corresponding to the error code.
+                const cloned = response.clone(); // You need to clone the response because once the json() method is called the response stream is consumed and you cannot consume it again.
                 const error = await cloned.json();
 
                 if (error && is<ErrorResponse>(error)) {
@@ -76,7 +82,7 @@ export const ToastNotifier = () => {
         }
     });
 
-    return <ToastContainer
+    return <ToastContainer // Create the toast container to enable the notification visualization.
         position="top-left"
         autoClose={5000}
         hideProgressBar={false}

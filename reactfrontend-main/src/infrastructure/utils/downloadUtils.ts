@@ -1,6 +1,9 @@
 import { isEmpty, isUndefined } from "lodash";
 import { toast } from "react-toastify";
 
+/**
+ * This function returns a Blob from the given BlobParts, on some browsers the Blob type may have different implementations to on error we may need to to build it differently.
+ */
 export const getBlob = (data: BlobPart, type?: string, onErrorMessage?: string): Blob | undefined => {
     try {
         return new Blob([data], { type });
@@ -32,6 +35,9 @@ export const getBlob = (data: BlobPart, type?: string, onErrorMessage?: string):
     }
 }
 
+/**
+ * Use this function to open a document in another tab if the given content type is supported.
+ */
 export const openDocument = (data: BlobPart, contentType: string = "application/octet-stream", onErrorMessage?: string) => {
     const file = getBlob(data, contentType, onErrorMessage);
 
@@ -47,6 +53,9 @@ export const openDocument = (data: BlobPart, contentType: string = "application/
     }
 };
 
+/**
+ * Use this function to download a document.
+ */
 export const downloadDocument = (data: BlobPart, fileName?: string, onErrorMessage?: string) => {
     const file = getBlob(data, "application/octet-stream", onErrorMessage);
 

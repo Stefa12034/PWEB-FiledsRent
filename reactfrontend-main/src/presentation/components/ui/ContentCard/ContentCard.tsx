@@ -3,6 +3,9 @@ import { ContentCardProps } from "./ContentCard.types";
 import { isEmpty, isUndefined } from "lodash";
 import "./contentCard.scss";
 
+/**
+ * This component wraps its content into a card like container.
+ */
 export const ContentCard = memo(
   ({ children, title }: PropsWithChildren<ContentCardProps>) => {
     const id = useId();

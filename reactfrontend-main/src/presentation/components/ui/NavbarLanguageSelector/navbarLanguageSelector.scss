@@ -19,6 +19,7 @@
 
 .language__selector__items {
   list-style-type: none;
+  display: contents;
 
   & .language__selector__item {
     padding: .5rem 1rem;

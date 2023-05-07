@@ -12,7 +12,9 @@
  * Do not edit the class manually.
  */
 
-
+/**
+ * Use a environment variable to configure the API base URL at the location where your backend is running.
+ */
 export const BASE_PATH = import.meta.env.VITE_APP_API_BASE_URL.replace(/\/+$/, "");
 
 export interface ConfigurationParameters {

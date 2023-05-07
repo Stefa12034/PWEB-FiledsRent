@@ -22,4 +22,5 @@
 # Then explicitly reverse the ignore rule for a single file:
 #!docs/README.md
 
-./runtime.ts
+# If you modify a file and don't want it to be updated add the file here.
+runtime.ts

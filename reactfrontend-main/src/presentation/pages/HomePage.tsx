@@ -1,5 +1,5 @@
 import { WebsiteLayout } from "presentation/layouts/WebsiteLayout";
-import { Typography, Grid } from "@mui/material";
+import { Typography } from "@mui/material";
 import { Fragment, memo } from "react";
 import { useIntl } from "react-intl";
 import { Box } from "@mui/system";

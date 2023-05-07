@@ -8,20 +8,13 @@ import {
 } from "react";
 import { languageContextReducer } from "./language.reducer";
 import { LanguageAPI, LanguageState } from "./LanguageContextProvider.types";
-import { first, isUndefined } from "lodash";
 
 const LanguageDataContext = createContext<LanguageState>({} as LanguageState);
 const LanguageAPIContext = createContext<LanguageAPI>({} as LanguageAPI);
 
-const getBrowserLanguage = (): SupportedLanguage => {
-  const browserLanguage = first(navigator.language.split("-"));
-  if (isUndefined(browserLanguage)) {
-    return SupportedLanguage.RO;
-  }
-
-  return browserLanguage as SupportedLanguage;
-};
-
+/**
+ * This is the language provider that should wrap the page content to have access to the internationalization.
+ */
 export const LanguageContextProvider = ({ children }: PropsWithChildren) => {
   const [state, dispatch] = useReducer(languageContextReducer, {
     selectedLanguage: SupportedLanguage.RO,

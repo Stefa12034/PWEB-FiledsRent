@@ -6,6 +6,9 @@ type InterceptorPros = {
 
 const { fetch: originalFetch } = window;
 
+/**
+ * This hook sets the fetch interceptor to intercept HTTP requests and do some additional actions on it.
+ */
 export const useInterceptor = (props: InterceptorPros) => {
     if (window.fetch === originalFetch) {
         window.fetch = async (...args) => {

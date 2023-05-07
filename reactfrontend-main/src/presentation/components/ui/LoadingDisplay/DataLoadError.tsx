@@ -2,6 +2,9 @@ import SyncProblemOutlinedIcon from '@mui/icons-material/SyncProblemOutlined';
 import { Container, Tooltip, Typography } from "@mui/material";
 import { useIntl } from 'react-intl';
 
+/**
+ * This component is used in the DataLoadingContainer to make a button to retry loading the data in the container.
+ */
 export const DataLoadError = (props: { tryReload?: () => void }) => {
     const { formatMessage } = useIntl();
 

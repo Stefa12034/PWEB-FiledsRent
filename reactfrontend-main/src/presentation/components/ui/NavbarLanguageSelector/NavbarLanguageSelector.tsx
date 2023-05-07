@@ -10,6 +10,9 @@ import { SupportedLanguage } from "presentation/assets/lang";
 import { FormattedMessage } from "react-intl";
 import "./navbarLanguageSelector.scss";
 
+/**
+ * This component wraps the select for the internationalization languages.
+ */
 export const NavbarLanguageSelector = memo(() => {
   const { selectedLanguage } = useLanguageState();
   const { setEnglish, setRomanian } = useLanguageAPI();

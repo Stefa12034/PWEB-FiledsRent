@@ -1,6 +1,9 @@
 import { format, parse } from "date-fns";
 import { zonedTimeToUtc } from "date-fns-tz";
 
+/**
+ * These functions can be used to parse date or datetime strings.
+ */
 export const stringToDatetime = (str: string) => new Date(Date.parse(str));
 export const stringToDatetimeOrNull = (str: string | null) => str ? new Date(Date.parse(str)) : null;
 export const dateStringToDatetime = (str: string) => zonedTimeToUtc(parse(str, "dd/MM/yyyy", new Date()), "UTC");
